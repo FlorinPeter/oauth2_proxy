@@ -112,7 +112,7 @@ func (p *OpenShiftProvider) LoadDefaults(serviceAccount string, caPaths []string
 		defaults.ValidateURL = &url.URL{
 			Scheme: defaults.LoginURL.Scheme,
 			Host:   defaults.LoginURL.Host,
-			Path:   "/apis/user.openshift.io/v1/users/~",
+			Path:   "/oapi/v1/users/~",
 		}
 	}
 	return defaults, nil
@@ -269,7 +269,7 @@ func (p *OpenShiftProvider) Complete(data *providers.ProviderData, reviewURL *ur
 		reviewURL = &url.URL{
 			Scheme: data.LoginURL.Scheme,
 			Host:   data.LoginURL.Host,
-			Path:   "/apis/authorization.openshift.io/v1/subjectaccessreviews",
+			Path:   "/oapi/v1/subjectaccessreviews",
 		}
 	}
 
